@@ -1,0 +1,19 @@
+# All Python projects must use pre-commit
+[nitpick.files.present]
+".pre-commit-config.yaml" = "You must create a .pre-commit-config.yaml file at the root of the project."
+
+# All Python projects must use pyupgrade
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/asottile/pyupgrade"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "pyupgrade"
+
+# All Python projects must use the debug-statements hook:
+# https://github.com/pre-commit/pre-commit-hooks#debug-statements
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "debug-statements"
+name = "debug-statements"

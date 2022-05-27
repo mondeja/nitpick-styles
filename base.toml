@@ -1,0 +1,7 @@
+[nitpick.files.present]
+# All projects must have a .gitignore
+".gitignore" = "Don't forget to create the .gitignore file!"
+
+# All projects must have a README.md and a LICENSE
+"README.md" = "You must create a README.md file at the root of the project."
+"LICENSE" = "You must create a LICENSE file at the root of the project."

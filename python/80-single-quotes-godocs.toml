@@ -1,0 +1,5 @@
+[nitpick.styles]
+include = ["./base"]
+
+# Single quotes for strings
+[[".pre-commit-config.yaml".repos]]

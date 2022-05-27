@@ -1,0 +1,20 @@
+[nitpick.styles]
+include = [
+    "../base",
+    "../editorconfig",
+    "pre-commit",
+    "bumpversion",
+    # Files that shouldn't exist in Python projects
+    "py://nitpick/resources/python/absent",
+    # Current stable Python version, for example for Readthedocs files
+    "py://nitpick/resources/python/stable",
+]
+
+[nitpick.files.present]
+"setup.py" = "Don't forget to create the setup.py file!"
+"setup.cfg" = "You must create a setup.cfg at the root of the project."
+"MANIFEST.in" = "Don't forget to create the MANIFEST.in file!"
+
+# https://nitpick.readthedocs.io/en/latest/nitpick_section.html#comma-separated-values
+[nitpick.files."setup.cfg"]
+comma_separated_values = ["flake8.ignore", "flake8.exclude", "isort.skip", "isort.known_first_party"]
