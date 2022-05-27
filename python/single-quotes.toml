@@ -1,0 +1,13 @@
+[nitpick.styles]
+include = ["base"]
+
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+
+# Single quotes for strings
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "double-quote-string-fixer"
+name = "double-quote-string-fixer"
+
+["setup.cfg".flake8]
+inline-quotes = "single"

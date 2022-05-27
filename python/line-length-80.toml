@@ -1,0 +1,8 @@
+[nitpick.styles]
+include = ["base"]
+
+["setup.cfg".isort]
+line_length = 79
+
+["setup.cfg".flake8]
+max-line-length = 80

@@ -1,0 +1,5 @@
+[nitpick.styles]
+include = ["base"]
+
+["setup.cfg".flake8]
+docstring-convention = "google"

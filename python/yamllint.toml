@@ -1,0 +1,10 @@
+[nitpick.styles]
+include = ["../yamllint"]
+
+# All Python projects must use yamllint via pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/adrienverge/yamllint"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "yamllint"
+args = ["-c", ".yamllint.yaml"]

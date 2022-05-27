@@ -1,0 +1,10 @@
+[nitpick.styles]
+include = ["base"]
+
+# Add trailing commas in multiline expressions
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/asottile/add-trailing-comma"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "add-trailing-comma"
+name = "add-trailing-comma"

@@ -4,10 +4,15 @@ include = [
     "../editorconfig",
     "pre-commit",
     "bumpversion",
+    "flake8",
+    "isort",
+    "yamllint",
     # Files that shouldn't exist in Python projects
     "py://nitpick/resources/python/absent",
     # Current stable Python version, for example for Readthedocs files
     "py://nitpick/resources/python/stable",
+    # All Python projects must use autoflake via pre-commit
+    "py://nitpick/resources/python/autoflake"
 ]
 
 [nitpick.files.present]
@@ -18,3 +23,15 @@ include = [
 # https://nitpick.readthedocs.io/en/latest/nitpick_section.html#comma-separated-values
 [nitpick.files."setup.cfg"]
 comma_separated_values = ["flake8.ignore", "flake8.exclude", "isort.skip", "isort.known_first_party"]
+
+
+# --- .editorconfig with pre-commit ---
+
+# In Python projects we check that editorconfig rules are followed
+# by using pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/editorconfig-checker/editorconfig-checker.python"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "editorconfig-checker"
+name = "editorconfig-checker"

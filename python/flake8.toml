@@ -1,0 +1,21 @@
+# All Python projects must use flake8 via pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/PyCQA/flake8"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "flake8"
+name = "flake8"
+additional_dependencies = [
+    "flake8-builtins",
+    "flake8-comprehensions",
+    "flake8-docstrings",
+    "flake8-executable",
+    "flake8-implicit-str-concat",
+    "flake8-print",
+    "flake8-printf-formatting",
+    "flake8-pytest-style",
+]
+
+["setup.cfg".flake8]
+pytest-parametrize-values-type = "tuple"
+pytest-parametrize-values-row-type = "tuple"

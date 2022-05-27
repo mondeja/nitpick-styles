@@ -9,11 +9,53 @@ repo = "https://github.com/asottile/pyupgrade"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "pyupgrade"
 
-# All Python projects must use the debug-statements hook:
-# https://github.com/pre-commit/pre-commit-hooks#debug-statements
+
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/pre-commit/pre-commit-hooks"
 
+# Remove trailing whitespaces from files in Python projects
+# using pre-commit directly
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "trailing-whitespace"
+# I like that hook identifiers show their ids when running,
+# not their readable names, I feel that really ugly
+name = "trailing-whitespace"
+
+# Fix end of files in Python projects using pre-commit
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "end-of-file-fixer"
+name = "end-of-file-fixer"
+
+# All Python projects must use the debug-statements hook:
+# https://github.com/pre-commit/pre-commit-hooks#debug-statements
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "debug-statements"
 name = "debug-statements"
+
+
+# All Python projects must have their setup.cfg correctly formatted
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/asottile/setup-cfg-fmt"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "setup-cfg-fmt"
+
+
+# All Python projects must expose their development dependencies
+# in a [dev] group and keep synced their development dependencies
+# with other groups of dependencies
+# https://github.com/mondeja/pre-commit-hooks#dev-extras-required
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/mondeja/pre-commit-hooks"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "dev-extras-required"
+
+
+# All Python projects must use Nitpick itself via pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/andreoliwa/nitpick"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "nitpick-check"
+name = "nitpick"

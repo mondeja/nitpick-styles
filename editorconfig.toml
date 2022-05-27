@@ -1,3 +1,11 @@
 # All projects must use editorconfig
 [nitpick.files.present]
 ".editorconfig" = "You must create an .editorconfig file at the root of the project."
+
+[".editorconfig"]
+root = true
+
+[".editorconfig"."*"]
+end_of_line = "lf"
+indent_style = "space"
+charset = "utf-8"
