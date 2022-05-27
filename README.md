@@ -2,14 +2,9 @@
 
 ## Python
 
-### `80-single-quotes-godocs`
-
-- Single quotes for strings.
-- 80 characters as maximum line length.
-- Trailing commas in all expressions.
-- Google docstrings convention.
-
-> Example project: [mdpo]
+- `single-quotes`: Single quotes for strings.
+- `google-docstrings`: Google docstrings convention.
+- `line-length-80`: 80 characters as maximum line length.
+- `trailing-commas`: Trailing commas in all expressions.
 
 [nitpick]: https://nitpick.readthedocs.io
-[mdpo]: https://github.com/mondeja/mdpo
