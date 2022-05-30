@@ -9,6 +9,14 @@ repo = "https://github.com/asottile/pyupgrade"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "pyupgrade"
 
+# All Python projects must use trailing commas in multiline expressions
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/asottile/add-trailing-comma"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "add-trailing-comma"
+name = "add-trailing-comma"
+
 
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/pre-commit/pre-commit-hooks"
