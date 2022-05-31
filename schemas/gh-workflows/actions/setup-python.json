@@ -1,0 +1,27 @@
+{
+  "$id": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/setup-python.json",
+  "type": "object",
+  "minProperties": 3,
+  "maxProperties": 3,
+  "properties": {
+    "uses": {
+      "type": "string",
+      "pattern": "^actions/setup-python@v3$"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "Set up Python"
+    },
+    "with": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "python-version": {
+          "type": "string",
+          "pattern": "^3\\.x$"
+        }
+      }
+    }
+  }
+}

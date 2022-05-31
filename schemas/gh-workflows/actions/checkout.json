@@ -1,0 +1,12 @@
+{
+  "$id": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/checkout.json",
+  "type": "object",
+  "minProperties": 1,
+  "maxProperties": 1,
+  "properties": {
+    "uses": {
+      "type": "string",
+      "pattern": "^actions/checkout@v3$"
+    }
+  }
+}
