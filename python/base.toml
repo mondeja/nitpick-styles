@@ -3,6 +3,7 @@ include = [
     "../base",
     "../editorconfig",
     "pre-commit",
+    "gh-actions",
     "bumpversion",
     "flake8",
     "isort",
@@ -35,15 +36,3 @@ comma_separated_values = [
     "isort.extend_skip",
     "isort.extend_skip_glob",
 ]
-
-
-# --- .editorconfig with pre-commit ---
-
-# In Python projects we check that editorconfig rules are followed
-# by using pre-commit
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/editorconfig-checker/editorconfig-checker.python"
-
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "editorconfig-checker"
-name = "editorconfig-checker"

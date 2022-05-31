@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "maxProperties": 3,
+  "minProperties": 3,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "pre-commit"
+    },
+    "on": {
+      "type": "object",
+      "maxProperties": 3,
+      "minProperties": 3,
+      "properties": {
+        "pull_request": {
+          "type": "null"
+        },
+        "workflow_dispatch": {
+          "type": "null"
+        },
+        "push": {
+          "type": "object",
+          "maxProperties": 1,
+          "minProperties": 1,
+          "properties": {
+            "branches": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "pattern": "master"
+                }
+              ],
+              "items": false
+            }
+          }
+        }
+      }
+    },
+    "jobs": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "pre-commit": {
+          "type": "object",
+          "minProperties": 2,
+          "maxProperties": 2,
+          "properties": {
+            "runs-on": {
+              "type": "string",
+              "pattern": "ubuntu-latest"
+            },
+            "steps": {
+              "type": "array",
+              "items": false,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "minProperties": 1,
+                  "maxProperties": 1,
+                  "properties": {
+                    "uses": {
+                      "type": "string",
+                      "pattern": "actions/checkout@v3"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "minProperties": 3,
+                  "maxProperties": 3,
+                  "properties": {
+                    "uses": {
+                      "type": "string",
+                      "pattern": "actions/setup-python@v3"
+                    },
+                    "name": {
+                      "type": "string",
+                      "pattern": "Set up Python"
+                    },
+                    "with": {
+                      "type": "object",
+                      "minProperties": 1,
+                      "maxProperties": 1,
+                      "properties": {
+                        "python-version": {
+                          "type": "string",
+                          "pattern": "3.x"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "minProperties": 2,
+                  "maxProperties": 2,
+                  "properties": {
+                    "uses": {
+                      "type": "string",
+                      "pattern": "pre-commit/action@v2.0.3"
+                    },
+                    "name": {
+                      "type": "string",
+                      "pattern": "Run pre-commit"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
