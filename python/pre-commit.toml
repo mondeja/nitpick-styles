@@ -69,6 +69,20 @@ id = "nitpick-check"
 name = "nitpick"
 
 
+# All Python projects must include LICENSE and README.md in MANIFEST.in file
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/mondeja/pre-commit-hooks"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "file-check-lines"
+name = "MANIFEST.in includes"
+files = "^MANIFEST\\.in$"
+args = [
+  "include README.md",
+  "include LICENSE"
+]
+
+
 # --- .editorconfig with pre-commit ---
 
 # In Python projects we check that editorconfig rules are followed

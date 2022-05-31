@@ -11,7 +11,7 @@ repo = "https://github.com/python-jsonschema/check-jsonschema"
 
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
-name = "jsonschema: .github/workflows/pre-commit.yml"
+name = ".github/workflows/pre-commit.yml schema"
 files = "^\\.github/workflows/pre-commit\\.yml$"
 args = [
     "--schemafile",
@@ -22,12 +22,9 @@ args = [
 
 # --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
 
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/python-jsonschema/check-jsonschema"
-
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
-name = "jsonschema: .github/workflows/pre-commit-autoupdate.yml"
+name = ".github/workflows/pre-commit-autoupdate.yml schema"
 files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
 args = [
     "--schemafile",
