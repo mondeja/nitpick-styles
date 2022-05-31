@@ -7,7 +7,7 @@ repo = "https://github.com/asottile/pyupgrade"
 
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "pyupgrade"
-args = ["--py36-plus"]
+args = ["--py37-plus"]
 
 # The add-trailing-comma pre-commit hook must use the correct argument
 [[".pre-commit-config.yaml".repos]]
@@ -15,11 +15,11 @@ repo = "https://github.com/asottile/add-trailing-comma"
 
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "add-trailing-comma"
-args = ["--py36-plus"]
+args = ["--py37-plus"]
 
 # Define a strict minimum version required to install in setup.cfg
 ["pyproject.toml".tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 
 # Configure the Python version that isort targets.
 #
@@ -32,13 +32,8 @@ python = "^3.6"
 # inside the standard libraries, which would lead to confusion
 # and possibly unexpected behaviour at runtime
 ["pyproject.toml".tool.isort]
-py_version = 36
+py_version = 37
 extra_standard_library = [
-    # https://docs.python.org/3/whatsnew/3.7.html#new-modules
-    "contextvars",
-    "dataclasses",
-    "importlib.resources",
-
     # https://docs.python.org/3/whatsnew/3.8.html#new-modules
     "importlib.metadata",
 

@@ -1,19 +1,19 @@
 [nitpick.styles]
 include = [
-    "../base",
-    "../editorconfig",
-    "pre-commit",
-    "gh-actions",
-    "bumpversion",
-    "flake8",
-    "isort",
-    "yamllint",
-    # Files that shouldn't exist in Python projects
-    "py://nitpick/resources/python/absent",
-    # Current stable Python version, for example for Readthedocs files
-    "py://nitpick/resources/python/stable",
-    # All Python projects must use autoflake via pre-commit
-    "py://nitpick/resources/python/autoflake"
+  "../base",
+  "../editorconfig",
+  "pre-commit",
+  "gh-actions",
+  "bumpversion",
+  "flake8",
+  "isort",
+  "yamllint",
+  # Files that shouldn't exist in Python projects
+  "py://nitpick/resources/python/absent",
+  # Current stable Python version, for example for Readthedocs files
+  "py://nitpick/resources/python/stable",
+  # All Python projects must use autoflake via pre-commit
+  "py://nitpick/resources/python/autoflake"
 ]
 
 [nitpick.files.present]
@@ -23,7 +23,4 @@ include = [
 
 # https://nitpick.readthedocs.io/en/latest/nitpick_section.html#comma-separated-values
 [nitpick.files."setup.cfg"]
-comma_separated_values = [
-    "flake8.ignore",
-    "flake8.exclude",
-]
+comma_separated_values = ["flake8.ignore", "flake8.exclude"]
