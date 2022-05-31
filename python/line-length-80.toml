@@ -1,7 +1,7 @@
 [nitpick.styles]
 include = ["base"]
 
-["setup.cfg".isort]
+["pyproject.toml".tool.isort]
 line_length = 79
 
 ["setup.cfg".flake8]

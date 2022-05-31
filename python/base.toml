@@ -26,13 +26,4 @@ include = [
 comma_separated_values = [
     "flake8.ignore",
     "flake8.exclude",
-    "isort.skip",
-    "isort.known_first_party",
-    "isort.known_third_party",
-    "isort.known_standard_library",
-    "isort.known_local_folder",
-    "isort.extra_standard_library",
-    "isort.skip",
-    "isort.extend_skip",
-    "isort.extend_skip_glob",
 ]

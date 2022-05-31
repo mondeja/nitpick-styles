@@ -1,7 +1,2 @@
 [nitpick.styles]
 include = ["py://nitpick/resources/python/readthedocs"]
-
-# Allow to run `python setup.py build_sphinx` to build docs
-["setup.cfg".build_sphinx]
-source-dir = "docs"
-build-dir = "docs/_build"

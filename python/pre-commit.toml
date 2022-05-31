@@ -41,25 +41,6 @@ id = "debug-statements"
 name = "debug-statements"
 
 
-# All Python projects must have their setup.cfg correctly formatted
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/asottile/setup-cfg-fmt"
-
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "setup-cfg-fmt"
-
-
-# All Python projects must expose their development dependencies
-# in a [dev] group and keep synced their development dependencies
-# with other groups of dependencies
-# https://github.com/mondeja/pre-commit-hooks#dev-extras-required
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/mondeja/pre-commit-hooks"
-
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "dev-extras-required"
-
-
 # All Python projects must use Nitpick itself via pre-commit
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/andreoliwa/nitpick"
@@ -67,20 +48,6 @@ repo = "https://github.com/andreoliwa/nitpick"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "nitpick-check"
 name = "nitpick"
-
-
-# All Python projects must include LICENSE and README.md in MANIFEST.in file
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/mondeja/pre-commit-hooks"
-
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "file-check-lines"
-name = "MANIFEST.in includes"
-files = "^MANIFEST\\.in$"
-args = [
-  "include README.md",
-  "include LICENSE"
-]
 
 
 # --- .editorconfig with pre-commit ---
