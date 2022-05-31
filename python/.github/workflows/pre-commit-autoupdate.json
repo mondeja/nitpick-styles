@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "maxProperties": 3,
+  "minProperties": 3,
+  "properties": {
+    "name": {
+      "const": "pre-commit autoupdate"
+    },
+    "on": {
+      "type": "object",
+      "maxProperties": 2,
+      "minProperties": 2,
+      "properties": {
+        "workflow_dispatch": {
+          "type": "null"
+        },
+        "schedule": {
+          "type": "array",
+          "items": false,
+          "prefixItems": [
+            {
+              "type": "object",
+              "minProperties": 1,
+              "maxProperties": 1,
+              "properties": {
+                "cron": {
+                  "const": "0 3 1 1/6 *"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "jobs": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "auto-update": {
+          "type": "object",
+          "minProperties": 2,
+          "maxProperties": 2,
+          "properties": {
+            "runs-on": {
+              "const": "ubuntu-latest"
+            },
+            "steps": {
+              "type": "array",
+              "items": false,
+              "prefixItems": [
+                {
+                  "$ref": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/checkout.json"
+                },
+                {
+                  "$ref": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/setup-python.json"
+                },
+                {
+                  "type": "object",
+                  "minProperties": 2,
+                  "maxProperties": 2,
+                  "properties": {
+                    "name": {
+                      "const": "Install pre-commit"
+                    },
+                    "run": {
+                      "const": "pip install pre-commit"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "minProperties": 2,
+                  "maxProperties": 2,
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "const": "Run pre-commit autoupdate"
+                    },
+                    "run": {
+                      "const": "pre-commit autoupdate"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "minProperties": 3,
+                  "maxProperties": 3,
+                  "properties": {
+                    "name": {
+                      "const": "Open pull request"
+                    },
+                    "uses": {
+                      "const": "peter-evans/create-pull-request@v4"
+                    },
+                    "with": {
+                      "type": "object",
+                      "minProperties": 7,
+                      "maxProperties": 7,
+                      "properties": {
+                        "token": {
+                          "const": "${{ secrets.PRECOMMIT_AUTOUPDATE_TOKEN }}"
+                        },
+                        "branch": {
+                          "const": "pre-commit-autoupdate"
+                        },
+                        "title": {
+                          "const": "Upgrade pre-commit hooks revisions"
+                        },
+                        "commit-message": {
+                          "const": "Upgrade pre-commit hooks revisions"
+                        },
+                        "body": {
+                          "const": "Upgrades revisions of pre-commit hooks tools to latest versions :hammer_and_wrench:"
+                        },
+                        "labels": {
+                          "const": "dependencies"
+                        },
+                        "delete-branch": {
+                          "const": true
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,12 +5,10 @@
   "maxProperties": 3,
   "properties": {
     "uses": {
-      "type": "string",
-      "pattern": "^actions/setup-python@v3$"
+      "const": "actions/setup-python@v3"
     },
     "name": {
-      "type": "string",
-      "pattern": "Set up Python"
+      "const": "Set up Python"
     },
     "with": {
       "type": "object",
@@ -18,8 +16,7 @@
       "maxProperties": 1,
       "properties": {
         "python-version": {
-          "type": "string",
-          "pattern": "^3\\.x$"
+          "const": "3.x"
         }
       }
     }

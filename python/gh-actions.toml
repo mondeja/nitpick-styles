@@ -1,4 +1,8 @@
 # All Python projects use Github Actions to run CI
+[nitpick.files.present]
+".github/workflows/pre-commit.yml" = "You must create the file .github/workflows/pre-commit.yml"
+".github/workflows/pre-commit-autoupdate.yml" = "You must create the file .github/workflows/pre-commit-autoupdate.yml"
+
 
 # --- Schema validation for .github/workflows/pre-commit.yml ---
 
@@ -12,6 +16,22 @@ files = "^\\.github/workflows/pre-commit\\.yml$"
 args = [
     "--schemafile",
     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json"
+]
+
+# --- ---
+
+# --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
+
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/python-jsonschema/check-jsonschema"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-jsonschema"
+name = "jsonschema: .github/workflows/pre-commit-autoupdate.yml"
+files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
+args = [
+    "--schemafile",
+    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json"
 ]
 
 # --- ---

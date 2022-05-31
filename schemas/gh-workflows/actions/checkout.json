@@ -5,8 +5,7 @@
   "maxProperties": 1,
   "properties": {
     "uses": {
-      "type": "string",
-      "pattern": "^actions/checkout@v3$"
+      "const": "actions/checkout@v3"
     }
   }
 }
