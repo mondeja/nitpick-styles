@@ -17,9 +17,8 @@ include = [
 ]
 
 [nitpick.files.present]
-"setup.py" = "Don't forget to create the setup.py file!"
-"setup.cfg" = "You must create a setup.cfg at the root of the project."
-"MANIFEST.in" = "Don't forget to create the MANIFEST.in file!"
+"pyproject.toml" = "Don't forget to create the pyproject.toml file!"
+"setup.cfg" = "You must create a setup.cfg to store the flake8 configuration."
 
 # https://nitpick.readthedocs.io/en/latest/nitpick_section.html#comma-separated-values
 [nitpick.files."setup.cfg"]
