@@ -1,2 +1,22 @@
-[nitpick.styles]
-include = ["py://nitpick/resources/python/readthedocs"]
+[".readthedocs.yml"]
+version = 2
+formats = "all"
+
+[".readthedocs.yml".sphinx]
+configuration = "docs/conf.py"
+fail_on_warning = true
+
+[".readthedocs.yml".build]
+os = "ubuntu-20.04"
+
+[".readthedocs.yml".build.tools]
+python = "3.10"
+
+# Readthedocs projects must use poetry to install
+# documentation dependencies defined in a `doc` group
+[".readthedocs.yml".build.jobs]
+post_install = [
+  "pip install poetry==1.2.0b1",
+  "poetry config virtualenvs.create false",
+  "poetry install --with doc",
+]

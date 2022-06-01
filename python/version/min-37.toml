@@ -9,14 +9,6 @@ repo = "https://github.com/asottile/pyupgrade"
 id = "pyupgrade"
 args = ["--py37-plus"]
 
-# The add-trailing-comma pre-commit hook must use the correct argument
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/asottile/add-trailing-comma"
-
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "add-trailing-comma"
-args = ["--py37-plus"]
-
 # Define a strict minimum version required to install in setup.cfg
 ["pyproject.toml".tool.poetry.dependencies]
 python = "^3.7"

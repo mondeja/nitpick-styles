@@ -10,8 +10,6 @@ include = [
   "yamllint",
   # Files that shouldn't exist in Python projects
   "py://nitpick/resources/python/absent",
-  # Current stable Python version, for example for Readthedocs files
-  "py://nitpick/resources/python/stable",
   # All Python projects must use autoflake via pre-commit
   "py://nitpick/resources/python/autoflake"
 ]
