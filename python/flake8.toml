@@ -30,3 +30,12 @@ additional_dependencies = [
 ["setup.cfg".flake8]
 pytest-parametrize-values-type = "tuple"
 pytest-parametrize-values-row-type = "tuple"
+
+# All Python projects must use yesqa to remove uneeded `# noqa` comments
+# via pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/asottile/yesqa"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "yesqa"
+name = "yesqa"
