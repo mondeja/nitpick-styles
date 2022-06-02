@@ -1,0 +1,16 @@
+# The content of .gitattributes file must be checked
+# with a pre-commit hook
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/mondeja/pre-commit-hooks"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "file-check-lines"
+name = ".gitattributes lines"
+files = "^\\.gitattributes$"
+args = [
+    "* text=auto",
+    "poetry.lock -diff",
+    ".gitignore export-ignore",
+    ".gitattributes export-ignore",
+    ".github export-ignore",
+]

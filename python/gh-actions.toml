@@ -8,6 +8,7 @@
 
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/python-jsonschema/check-jsonschema"
+rev = "0.15.1"
 
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
@@ -15,7 +16,7 @@ name = ".github/workflows/pre-commit.yml schema"
 files = "^\\.github/workflows/pre-commit\\.yml$"
 args = [
     "--schemafile",
-    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json"
+    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
 ]
 
 # --- ---
@@ -28,7 +29,7 @@ name = ".github/workflows/pre-commit-autoupdate.yml schema"
 files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
 args = [
     "--schemafile",
-    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json"
+    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
 ]
 
 # --- ---

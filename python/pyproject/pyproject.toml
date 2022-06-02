@@ -1,0 +1,50 @@
+[nitpick.files.present]
+"pyproject.toml" = "Don't forget to create the pyproject.toml file!"
+
+# All Python projects must check their pyproject.toml file against a
+# JSON schema using pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/python-jsonschema/check-jsonschema"
+# TOML checking currently only possible from main branch
+rev = "main"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-jsonschema"
+name = "pyproject.toml schema"
+files = "^pyproject\\.toml$"
+additional_dependencies = ["tomli"]
+args = [
+    "--schemafile",
+    "../mondeja/nitpick-styles/python/pyproject.toml.json",
+]
+
+# NOTES about fields in the JSON schema
+# -------------------------------------
+#
+# - TODO: license should be checked against a list of valid SPDX licenses.
+#   This must be added in a separate repo and referenced by an uri.
+#   Remind that this configuration also can be used in simple-icons.
+# - `tool.poetry.urls` shouldn't allow "Documentation", "Docs",
+#   "Repository", "Repo" or other variants, these must be moved to
+#   `tool.poetry.documentation` and `tool.poetry.repository`
+# - `tool.poetry.classifiers` must:        https://pypi.org/classifiers/
+#   - contain:
+#     - One of the next classifiers:
+#       - "Development Status :: 2 - Pre-Alpha"
+#       - "Development Status :: 3 - Alpha"
+#       - "Development Status :: 4 - Beta"
+#       - "Development Status :: 5 - Production/Stable"
+#       - "Development Status :: 6 - Mature"
+#     - A classifier starting with "Operating System :: "
+#     - A classifier starting with "Topic :: "
+#     - A classifier starting with "Intended Audience :: "
+#   - not contain:
+#     - A classifier starting with "License" because
+#       poetry adds it based on the `license` field when building.
+#       See `dist/*.tar.gz/PKG-INFO`.
+#     - A classifier starting with "Programming Language :: Python ::"
+#       poetry adds it based on the version defined in
+#       `tool.poetry.dependencies.python`.
+# - A bug tracker must be defined in `tool.poetry.urls`.
+# - Forbid the creation of a dependencies group named `docs`, must be
+#   named `doc` instead. The same applies to testing: `tests` -> `test`.

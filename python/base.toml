@@ -2,7 +2,9 @@
 include = [
   "../base",
   "../editorconfig",
+  "gitattributes",
   "pre-commit",
+  "pyproject/pyproject",
   "gh-actions",
   "bumpversion",
   "flake8",
@@ -15,8 +17,11 @@ include = [
 ]
 
 [nitpick.files.present]
-"pyproject.toml" = "Don't forget to create the pyproject.toml file!"
 "setup.cfg" = "You must create a setup.cfg to store the flake8 configuration."
+
+[nitpick.files.absent]
+".flake8" = """Create a setup.cfg and store the flake8 configuration inside a
+[flake8] section for better support of INI files syntax highlighting by editors."""
 
 # https://nitpick.readthedocs.io/en/latest/nitpick_section.html#comma-separated-values
 [nitpick.files."setup.cfg"]

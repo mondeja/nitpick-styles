@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "tool": {
+      "type": "object",
+      "properties": {
+        "poetry": {
+          "type": "object",
+          "required": [
+            "name",
+            "version",
+            "description",
+            "readme",
+            "license",
+            "authors",
+            "repository",
+            "documentation",
+            "classifiers",
+            "urls",
+            "dependencies",
+            "group"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "\\d+\\.\\d+\\.\\d+"
+            },
+            "description": {
+              "type": "string"
+            },
+            "readme": {
+              "const": "README.md"
+            },
+            "license": {
+              "type": "string"
+            },
+            "authors": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "repository": {
+              "type": "string",
+              "format": "uri"
+            },
+            "documentation": {
+              "type": "string",
+              "format": "uri"
+            },
+            "classifiers": {
+              "type": "array",
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "oneOf": [
+                    { "const": "Development Status :: 4 - Beta" },
+                    { "const": "Development Status :: 3 - Alpha" },
+                    { "const": "Development Status :: 2 - Pre-Alpha" },
+                    { "const": "Development Status :: 5 - Production/Stable" },
+                    { "const": "Development Status :: 6 - Mature" }
+                  ]
+                },
+                {
+                  "type": "string",
+                  "pattern": "^Operating System :: "
+                },
+                {
+                  "type": "string",
+                  "pattern": "^Intended Audience :: "
+                },
+                {
+                  "type": "string",
+                  "pattern": "^Topic :: "
+                }
+              ],
+              "items": {
+                "type": "string",
+                "pattern": "^(?!(License)|(Programming Language :: Python ::))"
+              }
+            },
+            "packages": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object"
+              }
+            },
+            "urls": {
+              "type": "object",
+              "required": ["Bug tracker"],
+              "properties": {
+                "Bug tracker": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            },
+            "dependencies": {
+              "type": "object",
+              "required": ["python"],
+              "properties": {
+                "python": {
+                  "type": "string",
+                  "pattern": "^\\^\\d+\\.\\d+"
+                }
+              }
+            },
+            "group": {
+              "type": "object",
+              "required": ["dev"],
+              "propertyNames": {
+                "pattern": "^(?!(docs)|(tests))"
+              },
+              "properties": {
+                "dev": {
+                  "type": "object",
+                  "required": ["dependencies"],
+                  "properties": {
+                    "dependencies": {
+                      "type": "object",
+                      "required": ["pre-commit", "bump2version"],
+                      "properties": {
+                        "pre-commit": {
+                          "type": "string",
+                          "pattern": "^\\^\\d+\\.\\d+\\.\\d+"
+                        },
+                        "bump2version": {
+                          "type": "string",
+                          "pattern": "^\\^\\d+\\.\\d+\\.\\d+"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "scripts": {
+              "type": "object",
+              "minProperties": 1,
+              "patternProperties": {
+                "^\\w$": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

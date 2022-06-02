@@ -1,6 +1,11 @@
 [nitpick.styles]
 include = ["../yamllint"]
 
+[nitpick.files.absent]
+".yamllint" = """Store the yamllint configuration inside a .yamllint.yaml file
+for better support of YAML files syntax highlighting by editors when the extension
+is specified."""
+
 # All Python projects must use yamllint via pre-commit
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/adrienverge/yamllint"
