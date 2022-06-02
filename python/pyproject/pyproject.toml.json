@@ -169,6 +169,19 @@
               }
             }
           }
+        },
+        "poetry-exec-plugin": {
+          "type": "object",
+          "required": ["commands"],
+          "properties": {
+            "commands": {
+              "type": "object",
+              "required": ["lint"],
+              "lint": {
+                "const": "pre-commit run -a"
+              }
+            }
+          }
         }
       }
     }

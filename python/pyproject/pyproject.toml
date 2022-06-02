@@ -57,3 +57,7 @@
 #   in a configuration file, we are taking control of the entire list
 #   of regexes for lines to be excluded, see
 #   https://coverage.rtfd.io/en/latest/excluding.html#advanced-exclusion
+# - A linting command must be added to `tool.poetry-exec-plugin.commands`
+#   named `lint` that will execute pre-commit.
+# - TODO: pre-commit must be included as dependency in a group: `test` or
+#   `dev`.
