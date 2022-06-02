@@ -8,7 +8,7 @@
 
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/python-jsonschema/check-jsonschema"
-rev = "0.15.1"
+rev = "main"
 
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"

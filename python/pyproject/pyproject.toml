@@ -16,7 +16,7 @@ additional_dependencies = ["tomli"]
 types_or = ["toml"]
 args = [
     "--schemafile",
-    "../mondeja/nitpick-styles/python/pyproject.toml.json",
+    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/pyproject/pyproject.toml.json",
 ]
 
 # NOTES about fields in the JSON schema
