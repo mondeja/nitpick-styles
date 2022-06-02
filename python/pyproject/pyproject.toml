@@ -51,3 +51,9 @@
 # - A bug tracker must be defined in `tool.poetry.urls`.
 # - Forbid the creation of a dependencies group named `docs`, must be
 #   named `doc` instead. The same applies to testing: `tests` -> `test`.
+# - Always include the `tool.coverage.report` object with a string
+#   "pragma: no cover" as the first argument of `exclude_lines`. The
+#   rationale behind this is that when using the `exclude_lines` option
+#   in a configuration file, we are taking control of the entire list
+#   of regexes for lines to be excluded, see
+#   https://coverage.rtfd.io/en/latest/excluding.html#advanced-exclusion

@@ -124,12 +124,8 @@
                   "properties": {
                     "dependencies": {
                       "type": "object",
-                      "required": ["pre-commit", "bump2version"],
+                      "required": ["bump2version"],
                       "properties": {
-                        "pre-commit": {
-                          "type": "string",
-                          "pattern": "^\\^\\d+\\.\\d+\\.\\d+"
-                        },
                         "bump2version": {
                           "type": "string",
                           "pattern": "^\\^\\d+\\.\\d+\\.\\d+"
@@ -146,6 +142,29 @@
               "patternProperties": {
                 "^\\w$": {
                   "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "required": ["report"],
+          "properties": {
+            "report": {
+              "type": "object",
+              "required": ["exclude_lines"],
+              "properties": {
+                "exclude_lines": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "const": "pragma: no cover"
+                    }
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
