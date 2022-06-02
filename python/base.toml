@@ -1,7 +1,7 @@
 [nitpick.styles]
 include = [
-  "../base",
-  "../editorconfig",
+  "../base/main",
+  "../base/editorconfig",
   "gitattributes",
   "pre-commit",
   "pyproject/pyproject",

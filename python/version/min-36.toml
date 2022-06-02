@@ -1,5 +1,5 @@
 [nitpick.styles]
-include = ["../base"]
+include = ["../base/main"]
 
 # The pyupgrade pre-commit hook must use the correct argument
 [[".pre-commit-config.yaml".repos]]

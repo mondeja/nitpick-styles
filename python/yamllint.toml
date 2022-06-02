@@ -1,5 +1,5 @@
 [nitpick.styles]
-include = ["../yamllint"]
+include = ["../base/yamllint"]
 
 [nitpick.files.absent]
 ".yamllint" = """Store the yamllint configuration inside a .yamllint.yaml file
