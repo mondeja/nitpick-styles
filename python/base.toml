@@ -23,7 +23,4 @@ repo = "https://github.com/pre-commit/mirrors-prettier"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "prettier"
 types_or = ["toml", "css"]
-additional_dependencies = [
-  "prettier",
-  "prettier-plugin-toml",
-]
+additional_dependencies = ["prettier", "prettier-plugin-toml"]

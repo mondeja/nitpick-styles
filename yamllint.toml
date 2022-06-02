@@ -10,40 +10,51 @@ comments-indentation = "enable"
 key-duplicates = "enable"
 trailing-spaces = "enable"
 truthy = "disable"
+
 [".yamllint.yaml".rules.braces]
 forbid = true
+
 [".yamllint.yaml".rules.brackets]
 forbid = true
+
 [".yamllint.yaml".rules.colons]
 max-spaces-after = 1
 max-spaces-before = 0
+
 [".yamllint.yaml".rules.comments]
 ignore-shebangs = true
 min-spaces-from-content = 2
 require-starting-space = true
+
 [".yamllint.yaml".rules.empty-lines]
 max = 1
+
 [".yamllint.yaml".rules.hyphens]
 max-spaces-after = 1
+
 [".yamllint.yaml".rules.indentation]
 check-multi-line-strings = true
 ignore = ".github"
 indent-sequences = true
 spaces = "consistent"
+
 [".yamllint.yaml".rules.line-length]
 allow-non-breakable-words = true
 max = 96
+
 [".yamllint.yaml".rules.new-lines]
 type = "unix"
+
 [".yamllint.yaml".rules.octal-values]
 forbid-explicit-octal = true
 forbid-implicit-octal = true
+
 [".yamllint.yaml".rules.quoted-strings]
 extra-required = [
-    # Dependabot does not parse unquoted hours as strings:
-    # https://github.com/mondeja/latex-ji18n/runs/1459035577
-    # https://github.community/t/dependabot-parser-treat-hours-as-integers/145596
-    "\\d\\d:\\d\\d",
+  # Dependabot does not parse unquoted hours as strings:
+  # https://github.com/mondeja/latex-ji18n/runs/1459035577
+  # https://github.community/t/dependabot-parser-treat-hours-as-integers/145596
+  "\\d\\d:\\d\\d",
 ]
 quote-type = "single"
 required = "only-when-needed"

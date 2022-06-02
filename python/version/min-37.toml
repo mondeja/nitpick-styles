@@ -26,17 +26,15 @@ python = "^3.7"
 ["pyproject.toml".tool.isort]
 py_version = 37
 extra_standard_library = [
-    # https://docs.python.org/3/whatsnew/3.8.html#new-modules
-    "importlib.metadata",
+  # https://docs.python.org/3/whatsnew/3.8.html#new-modules
+  "importlib.metadata",
+  # https://docs.python.org/3/whatsnew/3.9.html#new-modules
+  "zoneinfo",
+  "graphlib",
+  # 3.10 does not add new modules
+  # 3.11 is not stable
+  # https://docs.python.org/3.11/whatsnew/3.11.html#new-modules
+  # "tomllib",
+  # "wsgiref.types",
 
-    # https://docs.python.org/3/whatsnew/3.9.html#new-modules
-    "zoneinfo",
-    "graphlib",
-
-    # 3.10 does not add new modules
-
-    # 3.11 is not stable
-    # https://docs.python.org/3.11/whatsnew/3.11.html#new-modules
-    # "tomllib",
-    # "wsgiref.types",
 ]

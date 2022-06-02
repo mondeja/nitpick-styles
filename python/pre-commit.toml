@@ -17,7 +17,6 @@ repo = "https://github.com/asottile/add-trailing-comma"
 id = "add-trailing-comma"
 name = "add-trailing-comma"
 
-
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/pre-commit/pre-commit-hooks"
 
@@ -40,7 +39,6 @@ name = "end-of-file-fixer"
 id = "debug-statements"
 name = "debug-statements"
 
-
 # All Python projects must use Nitpick itself via pre-commit
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/andreoliwa/nitpick"
@@ -49,9 +47,7 @@ repo = "https://github.com/andreoliwa/nitpick"
 id = "nitpick-check"
 name = "nitpick"
 
-
 # --- .editorconfig with pre-commit ---
-
 # In Python projects we check that editorconfig rules are followed
 # by using pre-commit
 [[".pre-commit-config.yaml".repos]]
@@ -60,5 +56,4 @@ repo = "https://github.com/editorconfig-checker/editorconfig-checker.python"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "editorconfig-checker"
 name = "editorconfig-checker"
-
 # --- ---

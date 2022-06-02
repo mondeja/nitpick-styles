@@ -1,6 +1,5 @@
 [nitpick.files.present]
 "pyproject.toml" = "Don't forget to create the pyproject.toml file!"
-
 # All Python projects must check their pyproject.toml file against a
 # JSON schema using pre-commit
 # FIXME: nitpick does not properly merge multiple repos defined in
@@ -9,7 +8,6 @@
 # repo = "https://github.com/python-jsonschema/check-jsonschema"
 # TOML checking currently only possible from main branch
 # rev = "main"
-
 # [[".pre-commit-config.yaml".repos.hooks]]
 # id = "check-jsonschema"
 # name = "pyproject.toml schema"
@@ -20,7 +18,6 @@
 #     "--schemafile",
 #     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/pyproject/pyproject.toml.json",
 # ]
-
 # NOTES about fields in the JSON schema
 # -------------------------------------
 #

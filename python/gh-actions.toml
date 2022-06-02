@@ -2,8 +2,6 @@
 [nitpick.files.present]
 ".github/workflows/pre-commit.yml" = "You must create the file .github/workflows/pre-commit.yml"
 ".github/workflows/pre-commit-autoupdate.yml" = "You must create the file .github/workflows/pre-commit-autoupdate.yml"
-
-
 # FIXME: nitpick does not properly merge multiple repos defined in
 # different included style files
 #
@@ -19,11 +17,8 @@
 #     "--schemafile",
 #     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
 # ]
-
 # --- ---
-
 # --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
-
 # [[".pre-commit-config.yaml".repos.hooks]]
 # id = "check-jsonschema"
 # name = ".github/workflows/pre-commit-autoupdate.yml schema"
@@ -32,5 +27,4 @@
 #     "--schemafile",
 #     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
 # ]
-
 # --- ---
