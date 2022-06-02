@@ -1,3 +1,14 @@
+[nitpick.files.present]
+"setup.cfg" = "You must create a setup.cfg to store the flake8 configuration."
+
+[nitpick.files.absent]
+".flake8" = """Create a setup.cfg and store the flake8 configuration inside a
+[flake8] section for better support of INI files syntax highlighting by editors."""
+
+# https://nitpick.readthedocs.io/en/latest/nitpick_section.html#comma-separated-values
+[nitpick.files."setup.cfg"]
+comma_separated_values = ["flake8.ignore", "flake8.exclude"]
+
 # All Python projects must use flake8 via pre-commit
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/PyCQA/flake8"
