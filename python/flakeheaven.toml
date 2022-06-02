@@ -1,0 +1,62 @@
+# All Python projects must use flakeheaven via pre-commit
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/flakeheaven/flakeheaven"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "flakeheaven"
+additional_dependencies = [
+  "flake8-builtins",
+  "flake8-comprehensions",
+  "flake8-docstrings",
+  "flake8-executable",
+  "flake8-implicit-str-concat",
+  "flake8-print",
+  "flake8-printf-formatting",
+  "flake8-pytest-style",
+]
+
+["pyproject.toml".tool.flakeheaven]
+pytest-parametrize-values-type = "tuple"
+pytest-parametrize-values-row-type = "tuple"
+
+# Enable all plugins
+["pyproject.toml".tool.flakeheaven.plugins]
+pycodestyle = [
+  "+*",
+  # Binary operators after line breaks because are more readable
+  # when there are a lot of them
+  "-W503",
+]
+pyflakes = ["+*"]
+pylint = ["+*"]
+flake8-builtins = ["+*"]
+flake8-comprehensions = ["+*"]
+flake8-docstrings = ["+*"]
+flake8-executable = ["+*"]
+flake8-implicit-str-concat = ["+*"]
+flake8-print = ["+*"]
+flake8-printf-formatting = ["+*"]
+flake8-pytest-style = ["+*"]
+
+["pyproject.toml".tool.flakeheaven.exceptions."docs/*.rst"]
+flake8-print = [
+  # We can use `print` in documentation blocks because is more readable
+  # for end user
+  "-T201",
+]
+flake8-docstrings = [
+  # FIXME (raised in mdpo):
+  #   docs/commands.rst:1:1: D100 Missing docstring in public module [flake8-docstrings]
+  "-D100",
+]
+
+["pyproject.toml".tool.flakeheaven.exceptions."tests/**"]
+flake8-docstrings = [
+  "-D100",
+  "-D101",
+  "-D102",
+  "-D103",
+  "-D107",
+  "-D205",
+  "-D415"
+]

@@ -7,7 +7,7 @@ include = [
   "pyproject/pyproject",
   "gh-actions",
   "bumpversion",
-  "flake8",
+  "flakeheaven",
   "isort",
   "yamllint",
   # Files that shouldn't exist in Python projects

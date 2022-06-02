@@ -17,7 +17,7 @@ repo = "https://github.com/asottile/add-trailing-comma"
 id = "add-trailing-comma"
 args = ["--py36-plus"]
 
-# Define a strict minimum version required to install in setup.cfg
+# Define a strict minimum version required to install in pyproject.toml
 ["pyproject.toml".tool.poetry.dependencies]
 python = "^3.6"
 

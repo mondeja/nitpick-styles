@@ -9,5 +9,5 @@ repo = "https://github.com/pre-commit/pre-commit-hooks"
 id = "double-quote-string-fixer"
 name = "double-quote-string-fixer"
 
-["setup.cfg".flake8]
+["pyproject.toml".tool.flakeheaven]
 inline-quotes = "single"

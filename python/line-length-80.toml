@@ -4,7 +4,7 @@ include = ["base"]
 ["pyproject.toml".tool.isort]
 line_length = 79
 
-["setup.cfg".flake8]
+["pyproject.toml".tool.flakeheaven]
 max-line-length = 80
 
 # Maximum line length 80: we probably want autopep8 as formatter
