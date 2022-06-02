@@ -13,6 +13,7 @@ id = "check-jsonschema"
 name = "pyproject.toml schema"
 files = "^pyproject\\.toml$"
 additional_dependencies = ["tomli"]
+types_or = ["toml"]
 args = [
     "--schemafile",
     "../mondeja/nitpick-styles/python/pyproject.toml.json",
