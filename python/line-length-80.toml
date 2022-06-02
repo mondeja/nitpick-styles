@@ -6,3 +6,10 @@ line_length = 79
 
 ["setup.cfg".flake8]
 max-line-length = 80
+
+# Maximum line length 80: we probably want autopep8 as formatter
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/pre-commit/mirrors-autopep8"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "autopep8"
