@@ -4,32 +4,33 @@
 ".github/workflows/pre-commit-autoupdate.yml" = "You must create the file .github/workflows/pre-commit-autoupdate.yml"
 
 
+# FIXME: nitpick does not properly merge multiple repos defined in
+# different included style files
+#
 # --- Schema validation for .github/workflows/pre-commit.yml ---
-
-[[".pre-commit-config.yaml".repos]]
-repo = "https://github.com/python-jsonschema/check-jsonschema"
-rev = "main"
-
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "check-jsonschema"
-name = ".github/workflows/pre-commit.yml schema"
-files = "^\\.github/workflows/pre-commit\\.yml$"
-args = [
-    "--schemafile",
-    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
-]
+# [[".pre-commit-config.yaml".repos]]
+# repo = "https://github.com/python-jsonschema/check-jsonschema"
+#
+# [[".pre-commit-config.yaml".repos.hooks]]
+# id = "check-jsonschema"
+# name = ".github/workflows/pre-commit.yml schema"
+# files = "^\\.github/workflows/pre-commit\\.yml$"
+# args = [
+#     "--schemafile",
+#     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
+# ]
 
 # --- ---
 
 # --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
 
-[[".pre-commit-config.yaml".repos.hooks]]
-id = "check-jsonschema"
-name = ".github/workflows/pre-commit-autoupdate.yml schema"
-files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
-args = [
-    "--schemafile",
-    "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
-]
+# [[".pre-commit-config.yaml".repos.hooks]]
+# id = "check-jsonschema"
+# name = ".github/workflows/pre-commit-autoupdate.yml schema"
+# files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
+# args = [
+#     "--schemafile",
+#     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
+# ]
 
 # --- ---
