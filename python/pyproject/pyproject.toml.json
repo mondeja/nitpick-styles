@@ -219,15 +219,20 @@
         },
         "nitpick": {
           "type": "object",
-          "required": ["style"],
+          "required": ["style", "cache"],
           "properties": {
             "style": {
               "type": "array",
               "minItems": 1,
               "items": {
                 "type": "string",
-                "format": "iri-reference"
+                "format": "iri-reference",
+                "pattern": "^(gh)|(https)|(py)://"
               }
+            },
+            "cache": {
+              "type": "string",
+              "pattern": "^(\\d+ (minutes?)|(hours?)|(days?)|(weeks?))|(never)"
             }
           }
         },
@@ -249,6 +254,234 @@
                   "items": {
                     "type": "string"
                   }
+                }
+              }
+            }
+          }
+        },
+        "pytest": {
+          "type": "object",
+          "properties": {
+            "ini_options": {
+              "type": "object",
+              "properties": {
+                "addopts": {
+                  "type": "string"
+                },
+                "cache_dir": {
+                  "type": "string",
+                  "format": "iri-reference"
+                },
+                "confcutdir": {
+                  "type": "string",
+                  "format": "iri-reference"
+                },
+                "console_output_style": {
+                  "oneOf": [
+                    {
+                      "const": "classic"
+                    },
+                    {
+                      "const": "progress"
+                    },
+                    {
+                      "count": "count"
+                    }
+                  ]
+                },
+                "doctest_encoding": {
+                  "type": "string"
+                },
+                "doctest_optionflags": {
+                  "type": "string"
+                },
+                "empty_parameter_set_mark": {
+                  "oneOf": [
+                    {
+                      "const": "skip"
+                    },
+                    {
+                      "const": "xfail"
+                    },
+                    {
+                      "const": "fail_at_collect"
+                    }
+                  ]
+                },
+                "faulthandler_timeout": {
+                  "type": "number"
+                },
+                "filterwarnings": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "junit_duration_report": {
+                  "oneOf": [
+                    {
+                      "const": "total"
+                    },
+                    {
+                      "const": "call"
+                    }
+                  ]
+                },
+                "junit_family": {
+                  "oneOf": [
+                    {
+                      "const": "legacy"
+                    },
+                    {
+                      "const": "xunit1"
+                    },
+                    {
+                      "const": "xunit2"
+                    }
+                  ]
+                },
+                "junit_logging": {
+                  "oneOf": [
+                    {
+                      "const": "log"
+                    },
+                    {
+                      "const": "system-out"
+                    },
+                    {
+                      "const": "system-err"
+                    },
+                    {
+                      "const": "out-err"
+                    },
+                    {
+                      "const": "all"
+                    },
+                    {
+                      "const": "no"
+                    }
+                  ]
+                },
+                "junit_log_passing_tests": {
+                  "type": "boolean"
+                },
+                "junit_suite_name": {
+                  "type": "string"
+                },
+                "log_auto_indent": {
+                  "oneOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "const": "On"
+                    },
+                    {
+                      "const": "Off"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "log_cli": {
+                  "type": "boolean"
+                },
+                "log_cli_date_format": {
+                  "type": "string"
+                },
+                "log_cli_format": {
+                  "type": "string"
+                },
+                "log_cli_level": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "log_date_format": {
+                  "type": "string"
+                },
+                "log_file": {
+                  "type": "string",
+                  "format": "iri-reference"
+                },
+                "log_file_date_format": {
+                  "type": "string"
+                },
+                "log_file_format": {
+                  "type": "string"
+                },
+                "log_file_level": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "log_format": {
+                  "type": "string"
+                },
+                "log_level": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "markers": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "minversion": {
+                  "type": "string"
+                },
+                "norecursedirs": {
+                  "type": "string"
+                },
+                "python_classes": {
+                  "type": "string"
+                },
+                "python_files": {
+                  "type": "string"
+                },
+                "python_functions": {
+                  "type": "string"
+                },
+                "required_plugins": {
+                  "type": "string"
+                },
+                "testpaths": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "format": "iri-reference"
+                  }
+                },
+                "usefixtures": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "xfail_strict": {
+                  "type": "boolean"
                 }
               }
             }
