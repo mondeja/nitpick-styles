@@ -13,11 +13,13 @@ additional_dependencies = [
   "flake8-print",
   "flake8-printf-formatting",
   "flake8-pytest-style",
+  "pysetenv",
 ]
+# Ensure that the output is consistent by disabling cache
+entry = "pysetenv FLAKEHEAVEN_CACHE_TIMEOUT=0 flakeheaven lint"
 
 ["pyproject.toml".tool.flakeheaven]
-pytest-parametrize-values-type = "tuple"
-pytest-parametrize-values-row-type = "tuple"
+pytest_parametrize_values_type = "tuple"
 
 # Enable all plugins
 ["pyproject.toml".tool.flakeheaven.plugins]

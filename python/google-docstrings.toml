@@ -2,4 +2,4 @@
 include = ["base"]
 
 ["pyproject.toml".tool.flakeheaven]
-docstring-convention = "google"
+docstring_convention = "google"
