@@ -2,6 +2,7 @@
 [nitpick.files.present]
 ".github/workflows/pre-commit.yml" = "You must create the file .github/workflows/pre-commit.yml"
 ".github/workflows/pre-commit-autoupdate.yml" = "You must create the file .github/workflows/pre-commit-autoupdate.yml"
+".github/workflows/update-copyright-years.yml" = "You must create the file .github/workflows/update-copyright-years.yml"
 # FIXME: nitpick does not properly merge multiple repos defined in
 # different included style files
 #

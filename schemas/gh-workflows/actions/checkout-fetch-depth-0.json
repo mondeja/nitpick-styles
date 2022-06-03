@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/checkout-fetch-depth-0.json",
+  "type": "object",
+  "required": ["uses", "with"],
+  "additionalProperties": false,
+  "properties": {
+    "uses": {
+      "const": "actions/checkout@v3"
+    },
+    "with": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fetch-depth"],
+      "properties": {
+        "fetch-depth": {
+          "const": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["name", "on", "jobs"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "const": "Update copyright years"
+    },
+    "on": {
+      "type": "object",
+      "required": ["workflow_dispatch", "schedule"],
+      "properties": {
+        "workflow_dispatch": {
+          "type": "null"
+        },
+        "schedule": {
+          "type": "array",
+          "items": false,
+          "prefixItems": [
+            {
+              "type": "object",
+              "required": ["cron"],
+              "additionalProperties": false,
+              "properties": {
+                "cron": {
+                  "const": "0 3 2 1 *"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "jobs": {
+      "type": "object",
+      "required": ["update-license-year"],
+      "additionalProperties": false,
+      "properties": {
+        "update-license-year": {
+          "type": "object",
+          "required": ["runs-on", "steps"],
+          "additionalProperties": false,
+          "properties": {
+            "runs-on": {
+              "const": "ubuntu-latest"
+            },
+            "steps": {
+              "type": "array",
+              "items": false,
+              "prefixItems": [
+                {
+                  "$ref": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/checkout-fetch-depth-0.json"
+                },
+                {
+                  "required": ["uses", "with"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "uses": {
+                      "const": "FantasticFiasco/action-update-license-year@v2"
+                    },
+                    "with": {
+                      "type": "object",
+                      "required": ["token"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "token": {
+                          "const": "${{ secrets.GITHUB_TOKEN }}"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

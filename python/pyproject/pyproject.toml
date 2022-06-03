@@ -18,6 +18,8 @@
 #     "--schemafile",
 #     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/pyproject/pyproject.toml.json",
 # ]
+#
+#
 # NOTES about fields in the JSON schema
 # -------------------------------------
 #

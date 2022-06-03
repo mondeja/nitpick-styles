@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/setup-python.json",
   "type": "object",
-  "minProperties": 3,
-  "maxProperties": 3,
+  "required": ["uses", "name", "with"],
+  "additionalProperties": false,
   "properties": {
     "uses": {
       "const": "actions/setup-python@v3"
@@ -13,8 +13,8 @@
     },
     "with": {
       "type": "object",
-      "minProperties": 1,
-      "maxProperties": 1,
+      "required": ["python-version"],
+      "additionalProperties": false,
       "properties": {
         "python-version": {
           "const": "3.x"

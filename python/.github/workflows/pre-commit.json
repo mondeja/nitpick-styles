@@ -1,16 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "maxProperties": 3,
-  "minProperties": 3,
+  "required": ["name", "on", "jobs"],
+  "additionalProperties": false,
   "properties": {
     "name": {
       "const": "pre-commit"
     },
     "on": {
       "type": "object",
-      "maxProperties": 3,
-      "minProperties": 3,
+      "required": ["pull_request", "workflow_dispatch", "push"],
+      "additionalProperties": false,
       "properties": {
         "pull_request": {
           "type": "null"
@@ -20,8 +20,8 @@
         },
         "push": {
           "type": "object",
-          "maxProperties": 1,
-          "minProperties": 1,
+          "required": ["branches"],
+          "additionalProperties": false,
           "properties": {
             "branches": {
               "type": "array",
@@ -38,13 +38,13 @@
     },
     "jobs": {
       "type": "object",
-      "minProperties": 1,
-      "maxProperties": 1,
+      "required": ["pre-commit"],
+      "additionalProperties": false,
       "properties": {
         "pre-commit": {
           "type": "object",
-          "minProperties": 2,
-          "maxProperties": 2,
+          "required": ["runs-on", "steps"],
+          "additionalProperties": false,
           "properties": {
             "runs-on": {
               "const": "ubuntu-latest"
@@ -61,8 +61,8 @@
                 },
                 {
                   "type": "object",
-                  "minProperties": 2,
-                  "maxProperties": 2,
+                  "required": ["uses", "name"],
+                  "additionalProperties": false,
                   "properties": {
                     "uses": {
                       "const": "pre-commit/action@v2.0.3"

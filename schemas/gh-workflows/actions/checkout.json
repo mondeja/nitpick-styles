@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/schemas/gh-workflows/actions/checkout.json",
   "type": "object",
-  "minProperties": 1,
-  "maxProperties": 1,
+  "required": ["uses"],
+  "additionalProperties": false,
   "properties": {
     "uses": {
       "const": "actions/checkout@v3"

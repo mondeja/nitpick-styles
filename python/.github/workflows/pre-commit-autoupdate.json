@@ -1,16 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "maxProperties": 3,
-  "minProperties": 3,
+  "required": ["name", "on", "jobs"],
+  "additionalProperties": false,
   "properties": {
     "name": {
       "const": "pre-commit autoupdate"
     },
     "on": {
       "type": "object",
-      "maxProperties": 2,
-      "minProperties": 2,
+      "required": ["workflow_dispatch", "schedule"],
+      "additionalProperties": false,
       "properties": {
         "workflow_dispatch": {
           "type": "null"
@@ -21,8 +21,8 @@
           "prefixItems": [
             {
               "type": "object",
-              "minProperties": 1,
-              "maxProperties": 1,
+              "required": ["cron"],
+              "additionalProperties": false,
               "properties": {
                 "cron": {
                   "const": "0 3 1 1/6 *"
@@ -35,13 +35,13 @@
     },
     "jobs": {
       "type": "object",
-      "minProperties": 1,
-      "maxProperties": 1,
+      "required": ["autoupdate"],
+      "additionalProperties": false,
       "properties": {
-        "auto-update": {
+        "autoupdate": {
           "type": "object",
-          "minProperties": 2,
-          "maxProperties": 2,
+          "required": ["runs-on", "steps"],
+          "additionalProperties": false,
           "properties": {
             "runs-on": {
               "const": "ubuntu-latest"
@@ -58,8 +58,8 @@
                 },
                 {
                   "type": "object",
-                  "minProperties": 2,
-                  "maxProperties": 2,
+                  "required": ["name", "run"],
+                  "additionalProperties": false,
                   "properties": {
                     "name": {
                       "const": "Install pre-commit"
@@ -71,8 +71,8 @@
                 },
                 {
                   "type": "object",
-                  "minProperties": 2,
-                  "maxProperties": 2,
+                  "required": ["name", "run"],
+                  "additionalProperties": false,
                   "properties": {
                     "name": {
                       "type": "string",
@@ -85,8 +85,8 @@
                 },
                 {
                   "type": "object",
-                  "minProperties": 3,
-                  "maxProperties": 3,
+                  "required": ["name", "uses", "with"],
+                  "additionalProperties": false,
                   "properties": {
                     "name": {
                       "const": "Open pull request"
@@ -96,8 +96,16 @@
                     },
                     "with": {
                       "type": "object",
-                      "minProperties": 7,
-                      "maxProperties": 7,
+                      "required": [
+                        "token",
+                        "branch",
+                        "title",
+                        "commit-message",
+                        "body",
+                        "labels",
+                        "delete-branch"
+                      ],
+                      "additionalProperties": false,
                       "properties": {
                         "token": {
                           "const": "${{ secrets.PRECOMMIT_AUTOUPDATE_TOKEN }}"

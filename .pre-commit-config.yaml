@@ -12,8 +12,10 @@ repos:
     rev: v2.6.2
     hooks:
       - id: prettier
-        types:
+        types_or:
           - toml
+          - json
+          - markdown
         additional_dependencies:
           - prettier
           - prettier-plugin-toml
