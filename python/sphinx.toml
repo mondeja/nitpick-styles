@@ -13,3 +13,10 @@ gh://mondeja/nitpick-styles/python/readthedocs.toml to your .nitpick file."""
 RestructuredText format, if you want to write it with Markdown use Mkdocs
 instead. Rename docs/index.md by index.rst!"""
 "mkdocs.yml" = "Don't mix Sphinx with Mkdocs! Remove the mkdocs.yml file!"
+
+# Add commands to build the documentation using Sphinx
+["pyproject.toml".tool.poetry-exec-plugin.commands]
+doc = "python -m sphinx -T -E -W docs docs/_build/html"
+"doc:show" = """poetry exec doc &&
+python -c 'import webbrowser as w;w.open("http://127.0.0.1:8080")' &&
+python -m http.server 8080 -b localhost -d docs/_build/html"""

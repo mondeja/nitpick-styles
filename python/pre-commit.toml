@@ -56,4 +56,53 @@ repo = "https://github.com/editorconfig-checker/editorconfig-checker.python"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "editorconfig-checker"
 name = "editorconfig-checker"
+
+# --- Hooks for checking files with JSON schema ---
+[[".pre-commit-config.yaml".repos]]
+repo = "https://github.com/python-jsonschema/check-jsonschema"
+# TOML checking currently only possible from main branch
+rev = "main"
+
+# All Python projects must check their pyproject.toml file against a
+# JSON schema using pre-commit
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-jsonschema"
+name = "pyproject.toml schema"
+files = "^pyproject\\.toml$"
+additional_dependencies = ["tomli"]
+types_or = ["toml"]
+args = [
+  "--schemafile",
+  "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/pyproject/pyproject.toml.json",
+]
+
+# --- Schema validation for .github/workflows/pre-commit.yml ---#
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-jsonschema"
+name = ".github/workflows/pre-commit.yml schema"
+files = "^\\.github/workflows/pre-commit\\.yml$"
+args = [
+  "--schemafile",
+  "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
+]
+
+# --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-jsonschema"
+name = ".github/workflows/pre-commit-autoupdate.yml schema"
+files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
+args = [
+  "--schemafile",
+  "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
+]
+
+# --- Schema validation for .github/workflows/update-copyright-years.yml ---
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-jsonschema"
+name = ".github/workflows/update-copyright-years.yml schema"
+files = "^\\.github/workflows/update-copyright-years\\.yml$"
+args = [
+  "--schemafile",
+  "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/base/.github/workflows/update-copyright-years.json",
+]
 # --- ---

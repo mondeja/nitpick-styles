@@ -3,29 +3,6 @@
 ".github/workflows/pre-commit.yml" = "You must create the file .github/workflows/pre-commit.yml"
 ".github/workflows/pre-commit-autoupdate.yml" = "You must create the file .github/workflows/pre-commit-autoupdate.yml"
 ".github/workflows/update-copyright-years.yml" = "You must create the file .github/workflows/update-copyright-years.yml"
-# FIXME: nitpick does not properly merge multiple repos defined in
-# different included style files
-#
-# --- Schema validation for .github/workflows/pre-commit.yml ---
-# [[".pre-commit-config.yaml".repos]]
-# repo = "https://github.com/python-jsonschema/check-jsonschema"
-#
-# [[".pre-commit-config.yaml".repos.hooks]]
-# id = "check-jsonschema"
-# name = ".github/workflows/pre-commit.yml schema"
-# files = "^\\.github/workflows/pre-commit\\.yml$"
-# args = [
-#     "--schemafile",
-#     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
-# ]
-# --- ---
-# --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
-# [[".pre-commit-config.yaml".repos.hooks]]
-# id = "check-jsonschema"
-# name = ".github/workflows/pre-commit-autoupdate.yml schema"
-# files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
-# args = [
-#     "--schemafile",
-#     "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
-# ]
-# --- ---
+
+[nitpick.files.absent]
+".github/workflows/update-copyright-years-in-license-file.yml" = "Rename to .github/workflows/update-copyright-years.yml"
