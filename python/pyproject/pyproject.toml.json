@@ -134,8 +134,7 @@
                       "required": ["mondeja-bump"],
                       "properties": {
                         "mondeja-bump": {
-                          "type": "string",
-                          "pattern": "^\\^\\d+\\.\\d+\\.\\d+"
+                          "const": "*"
                         }
                       }
                     }
