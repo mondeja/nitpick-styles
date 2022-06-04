@@ -1,6 +1,3 @@
-[nitpick.styles]
-include = ["../../base/main"]
-
 # The pyupgrade pre-commit hook must use the correct argument
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/asottile/pyupgrade"

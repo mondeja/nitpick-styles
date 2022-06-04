@@ -1,6 +1,3 @@
-[nitpick.styles]
-include = ["base"]
-
 ["pyproject.toml".tool.isort]
 line_length = 79
 

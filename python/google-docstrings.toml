@@ -1,5 +1,2 @@
-[nitpick.styles]
-include = ["base"]
-
 ["pyproject.toml".tool.flakeheaven]
 docstring_convention = "google"

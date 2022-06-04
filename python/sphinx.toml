@@ -16,7 +16,7 @@ instead. Rename docs/index.md by index.rst!"""
 
 # Add commands to build the documentation using Sphinx
 ["pyproject.toml".tool.poetry-exec-plugin.commands]
-doc = "python -m sphinx -T -E -W docs docs/_build/html"
+doc = "python -m sphinx -n -T -E -W docs docs/_build/html"
 "doc:show" = """poetry exec doc &&
 python -c 'import webbrowser as w;w.open("http://127.0.0.1:8080")' &&
 python -m http.server 8080 -b localhost -d docs/_build/html"""
