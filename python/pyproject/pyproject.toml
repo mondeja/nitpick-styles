@@ -1,5 +1,21 @@
 [nitpick.files.present]
+# Just in case that we put the configuration of nitpick in a .nitpick file
 "pyproject.toml" = "Don't forget to create the pyproject.toml file!"
+
+[nitpick.files.absent]
+".nitpick.toml" = 'Move your nitpick configuration to "pyproject.toml".tool.nitpick'
+
+# Add my own bump version tool in development dependencies group
+["pyproject.toml".tool.poetry.group.dev.dependencies]
+"mondeja-bump" = "*"
+
+["pyproject.toml".tool.nitpick]
+# Explicit cache time for nitpick
+cache = "5 minutes"
+
+# Add lint command to poetry-exec-plugin section
+["pyproject.toml".tool.poetry-exec-plugin.commands]
+lint = "pre-commit run -a"
 #
 #
 # NOTES about fields in the JSON schema

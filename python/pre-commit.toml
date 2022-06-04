@@ -2,6 +2,18 @@
 [nitpick.files.present]
 ".pre-commit-config.yaml" = "You must create a .pre-commit-config.yaml file at the root of the project."
 
+# All Python projects must install meta hooks
+[[".pre-commit-config.yaml".repos]]
+repo = "meta"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-hooks-apply"
+name = "check-hooks-apply"
+
+[[".pre-commit-config.yaml".repos.hooks]]
+id = "check-useless-excludes"
+name = "check-useless-excludes"
+
 # All Python projects must use pyupgrade
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/asottile/pyupgrade"
@@ -44,10 +56,12 @@ name = "debug-statements"
 repo = "https://github.com/andreoliwa/nitpick"
 
 [[".pre-commit-config.yaml".repos.hooks]]
+# don't use the default `nitpick-fix` because is too destructive
 id = "nitpick-check"
 name = "nitpick"
+alias = "nitpick"
 
-# --- .editorconfig with pre-commit ---
+# .editorconfig with pre-commit
 # In Python projects we check that editorconfig rules are followed
 # by using pre-commit
 [[".pre-commit-config.yaml".repos]]
@@ -56,18 +70,19 @@ repo = "https://github.com/editorconfig-checker/editorconfig-checker.python"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "editorconfig-checker"
 name = "editorconfig-checker"
+alias = "ec"
 
-# --- Hooks for checking files with JSON schema ---
+# Hooks for checking files with JSON schema
 [[".pre-commit-config.yaml".repos]]
 repo = "https://github.com/python-jsonschema/check-jsonschema"
 # TOML checking currently only possible from main branch
 rev = "main"
 
-# All Python projects must check their pyproject.toml file against a
-# JSON schema using pre-commit
+# Schema validation for pyproject.toml
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
 name = "pyproject.toml schema"
+alias = "pyproject.toml schema"
 files = "^pyproject\\.toml$"
 additional_dependencies = ["tomli"]
 types_or = ["toml"]
@@ -76,33 +91,35 @@ args = [
   "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/pyproject/pyproject.toml.json",
 ]
 
-# --- Schema validation for .github/workflows/pre-commit.yml ---#
+# Schema validation for .github/workflows/pre-commit.yml
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
 name = ".github/workflows/pre-commit.yml schema"
+alias = ".github/workflows/pre-commit.yml schema"
 files = "^\\.github/workflows/pre-commit\\.yml$"
 args = [
   "--schemafile",
   "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit.json",
 ]
 
-# --- Schema validation for .github/workflows/pre-commit-autoupdate.yml ---
+# Schema validation for .github/workflows/pre-commit-autoupdate.yml
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
 name = ".github/workflows/pre-commit-autoupdate.yml schema"
+alias = ".github/workflows/pre-commit-autoupdate.yml schema"
 files = "^\\.github/workflows/pre-commit-autoupdate\\.yml$"
 args = [
   "--schemafile",
   "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/python/.github/workflows/pre-commit-autoupdate.json",
 ]
 
-# --- Schema validation for .github/workflows/update-copyright-years.yml ---
+# Schema validation for .github/workflows/update-copyright-years.yml
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "check-jsonschema"
 name = ".github/workflows/update-copyright-years.yml schema"
+alias = ".github/workflows/update-copyright-years.yml schema"
 files = "^\\.github/workflows/update-copyright-years\\.yml$"
 args = [
   "--schemafile",
   "https://raw.githubusercontent.com/mondeja/nitpick-styles/master/base/.github/workflows/update-copyright-years.json",
 ]
-# --- ---

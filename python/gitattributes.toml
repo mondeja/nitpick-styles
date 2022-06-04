@@ -6,6 +6,7 @@ repo = "https://github.com/mondeja/pre-commit-hooks"
 [[".pre-commit-config.yaml".repos.hooks]]
 id = "file-check-lines"
 name = ".gitattributes lines"
+alias = ".gitattributes lines"
 files = "^\\.gitattributes$"
 args = [
   "* text=auto",

@@ -1,0 +1,6 @@
+[nitpick.styles]
+include = ["../base/editorconfig"]
+
+# TOML indentation size must be 2
+[".editorconfig"."*.toml"]
+indent_size = 2

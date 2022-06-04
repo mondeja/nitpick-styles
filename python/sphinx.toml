@@ -20,3 +20,8 @@ doc = "python -m sphinx -T -E -W docs docs/_build/html"
 "doc:show" = """poetry exec doc &&
 python -c 'import webbrowser as w;w.open("http://127.0.0.1:8080")' &&
 python -m http.server 8080 -b localhost -d docs/_build/html"""
+
+# With documentation, our project will include CSS files,
+# so configure them properly with .editorconfig
+[".editorconfig"."*.css"]
+indent_size = 2

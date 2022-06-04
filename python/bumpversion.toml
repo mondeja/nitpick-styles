@@ -1,3 +1,0 @@
-# All Python projects must bump versions with bump2version
-[nitpick.files.present]
-".bumpversion.cfg" = "You must create a bumpversion.cfg file at the root of the project."

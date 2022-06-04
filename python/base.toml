@@ -1,12 +1,11 @@
 [nitpick.styles]
 include = [
   "../base/main",
-  "../base/editorconfig",
   "gitattributes",
+  "editorconfig",
   "pre-commit",
   "pyproject/pyproject",
   "gh-actions",
-  "bumpversion",
   "flakeheaven",
   "isort",
   "yamllint",
